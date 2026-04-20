@@ -2,10 +2,89 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terrapin Marketplace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Hello World</h1>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-icon">🐢</span>
+          <span class="logo-text">Terrapin Marketplace</span>
+        </a>
+        <div class="header-search">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search listings..."
+            autocomplete="off"
+          />
+        </div>
+        <div class="header-actions">
+          <div id="weather-widget" class="weather-widget">
+            <span id="weather-text">Loading weather...</span>
+          </div>
+          <a href="sell.html" class="btn-sell">+ List Item</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Category bar -->
+    <nav class="category-bar">
+      <button class="cat-btn active" data-category="">All</button>
+      <button class="cat-btn" data-category="Textbooks">📚 Textbooks</button>
+      <button class="cat-btn" data-category="Electronics">💻 Electronics</button>
+      <button class="cat-btn" data-category="Furniture">🛋️ Furniture</button>
+      <button class="cat-btn" data-category="Clothing">👕 Clothing</button>
+      <button class="cat-btn" data-category="Transportation">🚲 Transportation</button>
+      <button class="cat-btn" data-category="Other">📦 Other</button>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div id="listings-count" class="listings-count"></div>
+      <div id="listings-grid" class="listings-grid">
+        <div class="loading-spinner">Loading listings...</div>
+      </div>
+    </main>
+
+    <!-- Listing detail modal -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-category-badge" id="modal-category"></div>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <div class="modal-price" id="modal-price"></div>
+        <p class="modal-description" id="modal-description"></p>
+        <div class="modal-details">
+          <div class="modal-detail-row">
+            <span class="detail-label">📍 Pickup</span>
+            <span id="modal-location"></span>
+          </div>
+          <div class="modal-detail-row">
+            <span class="detail-label">✉️ Contact</span>
+            <a id="modal-email" href="#"></a>
+          </div>
+          <div class="modal-detail-row">
+            <span class="detail-label">🕐 Posted</span>
+            <span id="modal-date"></span>
+          </div>
+        </div>
+        <a id="modal-email-btn" href="#" class="btn-contact">Contact Seller</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Terrapin Marketplace &mdash; For UMD Students, By UMD Students &nbsp;🐢</p>
+      <p class="footer-sub">Only UMD email addresses (@umd.edu) may post listings.</p>
+    </footer>
+
+    <script src="app.js"></script>
   </body>
 </html>
