@@ -6,8 +6,10 @@ const buildingsRouter = require("./routes/buildings");
 
 const app = express();
 
+const mongoUri = process.env.MONGO_CONNECTION_STRING || "mongodb://localhost:27017/terrapin-marketplace";
+console.log("Connecting to:", mongoUri.replace(/:\/\/[^@]+@/, "://<credentials>@"));
 mongoose
-  .connect(process.env.MONGO_CONNECTION_STRING || "mongodb://localhost:27017/terrapin-marketplace")
+  .connect(mongoUri)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
