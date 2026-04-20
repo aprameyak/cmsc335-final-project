@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List an Item – Terrapin Marketplace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-icon">🐢</span>
+          <span class="logo-text">Terrapin Marketplace</span>
+        </a>
+        <div class="header-actions">
+          <a href="index.html" class="btn-back">← Browse</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="sell-main">
+      <div class="sell-card">
+        <h1 class="sell-title">List an Item</h1>
+        <p class="sell-subtitle">
+          Only UMD students with a <strong>@umd.edu</strong> email may post listings.
+        </p>
+
+        <form id="sell-form" class="sell-form" novalidate>
+          <div class="form-group">
+            <label for="title">Title <span class="required">*</span></label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="e.g. CMSC131 Textbook"
+              maxlength="100"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="price">Price ($) <span class="required">*</span></label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                placeholder="0.00"
+                min="0"
+                step="0.01"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="category">Category <span class="required">*</span></label>
+              <select id="category" name="category" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="Textbooks">📚 Textbooks</option>
+                <option value="Electronics">💻 Electronics</option>
+                <option value="Furniture">🛋️ Furniture</option>
+                <option value="Clothing">👕 Clothing</option>
+                <option value="Transportation">🚲 Transportation</option>
+                <option value="Other">📦 Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description <span class="required">*</span></label>
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Describe your item — condition, edition, any details buyers should know..."
+              rows="4"
+              maxlength="1000"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="sellerEmail">Your UMD Email <span class="required">*</span></label>
+            <input
+              type="email"
+              id="sellerEmail"
+              name="sellerEmail"
+              placeholder="terp@umd.edu"
+              required
+            />
+            <span class="field-hint">Must end in @umd.edu</span>
+          </div>
+
+          <div class="form-group">
+            <label for="pickupLocation">Pickup Location <span class="required">*</span></label>
+            <select id="pickupLocation" name="pickupLocation" required>
+              <option value="" disabled selected>Loading UMD buildings...</option>
+            </select>
+            <span class="field-hint">Populated from the UMD campus map</span>
+          </div>
+
+          <div id="form-error" class="form-error hidden"></div>
+
+          <button type="submit" class="btn-submit" id="submit-btn">
+            Post Listing
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Terrapin Marketplace &mdash; For UMD Students, By UMD Students &nbsp;🐢</p>
+    </footer>
+
+    <script src="sell.js"></script>
+  </body>
+</html>
